@@ -1,3 +1,7 @@
+    
+- debug:
+    var: foo
+
 - name: software from native sources
   apt:
     update_cache: true
