@@ -1,7 +1,7 @@
 - name: install M$ vscode
   block:
     - name: vscode - deploy gpg key
-      blockinfile:
+      ansible.builtin.blockinfile:
         path: /etc/apt/trusted.gpg.d/microsoft.asc
         create: true
         block: |
@@ -27,14 +27,14 @@
         mode: 644
 
     - name: vscode - create repository definition
-      lineinfile:
+      ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/vscode.list
         search_string: 'deb'
         line: 'deb [arch=amd64] http://ubuntu-proxy:8081/repository/ubuntu-microsoft-vscode stable main'
         create: true
 
     - name: vscode - install
-      apt:
+      ansible.builtin.apt:
         update_cache: true
         install_recommends: true
         state: latest
@@ -42,6 +42,6 @@
           - code
 
     - name: vscode - cleanup
-      apt:
+      ansible.builtin.apt:
         autoremove: true
         autoclean: true

@@ -1,7 +1,7 @@
 - name: install qgis
   block:
     - name: qgis - deploy ubuntugis ppa gpg key
-      blockinfile:
+      ansible.builtin.blockinfile:
         path: /etc/apt/trusted.gpg.d/ppa-ubuntugis.asc
         create: true
         block: |
@@ -22,14 +22,14 @@
         mode: 644
 
     - name: qgis - create ubuntugis ppa repository definition
-      lineinfile:
+      ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/ppa-ubuntugis.list
         search_string: 'deb'
         line: 'deb http://ubuntu-proxy:8081/repository/ubuntu-jammy-ppa-ubuntugis jammy main'
         create: true
 
     - name: qgis - install
-      apt:
+      ansible.builtin.apt:
         update_cache: true
         install_recommends: true
         state: latest
@@ -38,6 +38,6 @@
           - qgis-plugin-grass
 
     - name: qgis - cleanup
-      apt:
+      ansible.builtin.apt:
         autoremove: true
         autoclean: true
