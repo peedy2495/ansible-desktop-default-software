@@ -31,6 +31,8 @@
     - language-pack-gnome-en
     - language-selector-common
     - language-selector-gnome
+    - libreoffice-help-de
+    - libreoffice-l10n-de
     - libfuse2
     - libxml2-utils
     - ntfs-3g
