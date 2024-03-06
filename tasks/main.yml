@@ -11,6 +11,7 @@
     - cowsay
     - cryptsetup
     - curl
+    - eiciel
     - exfat-fuse
     - exfatprogs
     - ghex
