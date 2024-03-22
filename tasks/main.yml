@@ -73,6 +73,15 @@
   tags:
     - rm-apps
 
+- name: upgrade system
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: yes
+    autoremove: yes
+    purge: yes
+  tags:
+    - upgrade
+
 - name: disable gnome keyring
   ansible.builtin.command: rm /etc/xdg/autostart/gnome-keyring-*.desktop
   ignore_errors: true
