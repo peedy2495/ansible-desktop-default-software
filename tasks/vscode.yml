@@ -30,8 +30,17 @@
       ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/vscode.list
         search_string: 'deb'
+        line: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+        create: true
+      when: not nexus
+
+    - name: vscode - create repository definition
+      ansible.builtin.lineinfile:
+        path: /etc/save/apt/sources.list.d/vscode.list
+        search_string: 'deb'
         line: 'deb [arch=amd64] http://ubuntu-proxy:8081/repository/ubuntu-microsoft-vscode stable main'
         create: true
+      when: nexus
 
     - name: vscode - install
       ansible.builtin.apt:
