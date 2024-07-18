@@ -24,7 +24,7 @@
           NdCFTW7wY0Fb1fWJ+/KTsC4=
           =J6gs
           -----END PGP PUBLIC KEY BLOCK-----
-        mode: 644
+        mode: 0644
 
     - name: vscode - create repository definition
       ansible.builtin.lineinfile:
@@ -46,7 +46,7 @@
       ansible.builtin.apt:
         update_cache: true
         install_recommends: true
-        state: latest
+        state: present
         pkg:
           - code
 
