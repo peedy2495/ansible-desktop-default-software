@@ -21,11 +21,15 @@
           -----END PGP PUBLIC KEY BLOCK-----
         mode: 644
 
+    - name: Zeige den Versionsnamen (Codename)
+      debug:
+        msg: "{{ ansible_lsb.codename }}"
+
     - name: qgis - create ubuntugis ppa repository definition
       ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/ppa-ubuntugis.list
         search_string: 'deb'
-        line: 'deb https://ppa.launchpadcontent.net/ubuntugis/ppa/ubuntu jammy main'
+        line: 'deb https://ppa.launchpadcontent.net/ubuntugis/ppa/ubuntu {{ ansible_lsb.codename }} main'
         create: true
       when: not nexus
 
@@ -33,7 +37,7 @@
       ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/ppa-ubuntugis.list
         search_string: 'deb'
-        line: 'deb http://ubuntu-proxy:8081/repository/ubuntu-jammy-ppa-ubuntugis jammy main'
+        line: 'deb http://ubuntu-proxy:8081/repository/ubuntu-{{ ansible_lsb.codename }}-ppa-ubuntugis {{ ansible_lsb.codename }} main'
         create: true
       when: nexus
 
