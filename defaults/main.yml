@@ -1,2 +1,5 @@
 # use exising nexus cache
 nexus: yes
+nexus_name: nexus-c2
+appadd_ungoogled_chromium: true
+appadd_google-chrome: false

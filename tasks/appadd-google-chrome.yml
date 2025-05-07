@@ -1,0 +1,9 @@
+- name: software from native sources
+  ansible.builtin.apt:
+    update_cache: true
+    install_recommends: true
+    pkg:
+    - google-chrome-stable
+  when: appadd_google_chrome
+  tags:
+    - google-chrome

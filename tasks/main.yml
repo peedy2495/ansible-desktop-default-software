@@ -16,7 +16,6 @@
     - expect
     - ghex
     - gnome-tweaks
-    #- google-chrome-stable
     - gparted
     - grub-efi-amd64-bin
     - grub-efi-amd64-signed

@@ -1,0 +1,9 @@
+- name: software from native sources
+  ansible.builtin.apt:
+    update_cache: true
+    install_recommends: true
+    pkg:
+    - ungoogled-chromium
+  when: appadd_ungoogled_chromium
+  tags:
+    - ungoogled-chromium
