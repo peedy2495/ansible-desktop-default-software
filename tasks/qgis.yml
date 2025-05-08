@@ -61,5 +61,5 @@
     update_cache: true
     install_recommends: true
     pkg:
-    - qgias
+    - qgis
   when: appadd_qgis
