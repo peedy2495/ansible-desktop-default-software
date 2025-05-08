@@ -38,7 +38,7 @@
       ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/vscode.list
         search_string: 'deb'
-        line: 'deb [arch=amd64] http://{{ nexus_name }}:8081/repository/ubuntu-microsoft-vscode stable main'
+        line: 'deb [arch=amd64] {{ nexus_proto}}://{{ nexus_name }}:{{ nexus_port }}/repository/ubuntu-microsoft-vscode stable main'
         create: true
       when: nexus
 
