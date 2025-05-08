@@ -1,6 +1,6 @@
-- name: install qgis
+- name: install qgis from ppa
   block:
-    - name: qgis - deploy ubuntugis ppa gpg key
+    - name: ppa qgis - deploy ubuntugis ppa gpg key
       ansible.builtin.blockinfile:
         path: /etc/apt/trusted.gpg.d/ppa-ubuntugis.asc
         create: true
@@ -25,7 +25,7 @@
       debug:
         msg: "{{ ansible_lsb.codename }}"
 
-    - name: qgis - create ubuntugis ppa repository definition
+    - name: ppa qgis - create ubuntugis ppa repository definition
       ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/ppa-ubuntugis.list
         search_string: 'deb'
@@ -33,7 +33,7 @@
         create: true
       when: not nexus
 
-    - name: qgis - create ubuntugis ppa repository definition
+    - name: ppa qgis - create ubuntugis ppa repository definition
       ansible.builtin.lineinfile:
         path: /etc/save/apt/sources.list.d/ppa-ubuntugis.list
         search_string: 'deb'
@@ -41,7 +41,7 @@
         create: true
       when: nexus
 
-    - name: qgis - install
+    - name: ppa qgis - install
       ansible.builtin.apt:
         update_cache: true
         install_recommends: true
@@ -50,7 +50,7 @@
           - qgis
           - qgis-plugin-grass
 
-    - name: qgis - cleanup
+    - name: ppa qgis - cleanup
       ansible.builtin.apt:
         autoremove: true
         autoclean: true
