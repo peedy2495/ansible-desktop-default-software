@@ -96,7 +96,9 @@
   tags:
     - microsoft-vscode
 
+# as of noble the ppa hasn't the release related packages
 - name: install qgis
   ansible.builtin.import_tasks: qgis.yml
+  when: appadd_qgis
   tags:
     - qgis

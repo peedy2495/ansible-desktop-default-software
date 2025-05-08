@@ -54,3 +54,12 @@
       ansible.builtin.apt:
         autoremove: true
         autoclean: true
+  when: appadd_ppa_qgis
+
+- name: qgis from native sources
+  ansible.builtin.apt:
+    update_cache: true
+    install_recommends: true
+    pkg:
+    - qgias
+  when: appadd_qgis
