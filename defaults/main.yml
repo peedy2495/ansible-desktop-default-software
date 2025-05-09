@@ -1,6 +1,6 @@
 # use exising nexus cache
 nexus: yes
-nexus_name: nexus-c2
+nexus_host: nexus-c2
 nexus_port: 8081
 nexus_proto: http
 appadd_ungoogled_chromium: true
