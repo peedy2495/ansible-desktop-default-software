@@ -14,8 +14,8 @@
     - exfat-fuse
     - exfatprogs
     - expect
+    - evolution
     - ghex
-    - gnome
     - gnome-tweaks
     - gparted
     - grub-efi-amd64-bin
