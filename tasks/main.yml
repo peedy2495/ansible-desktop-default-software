@@ -1,3 +1,20 @@
+- name: Remove superfluous applications
+  ansible.builtin.apt:
+    pkg:
+    - aisleriot
+    - cheese
+    - gnome-mahjongg
+    - gnome-mines
+    - gnome-sudoku
+    - imagemagick
+    - transmission-common
+    - transmission-gtk
+    - usb-creator-common
+    - usb-creator-gtk
+    state: absent
+    autoremove: true
+  tags:
+    - rm-apps
     
 - name: Software from native sources
   ansible.builtin.apt:
@@ -15,6 +32,8 @@
     - exfatprogs
     - expect
     - evolution
+    - fdisk
+    - gdisk # has been removed with usb-creator - reinstallation
     - ghex
     - gnome-tweaks
     - gparted
@@ -55,24 +74,6 @@
   tags:
     - misc-from-native
 
-- name: Remove superfluous applications
-  ansible.builtin.apt:
-    pkg:
-    - aisleriot
-    - cheese
-    #- gnome-keyring
-    - gnome-mahjongg
-    - gnome-mines
-    - gnome-sudoku
-    - imagemagick
-    - transmission-common
-    - transmission-gtk
-    - usb-creator-common
-    - usb-creator-gtk
-    state: absent
-    autoremove: true
-  tags:
-    - rm-apps
 
 - name: Upgrade system
   ansible.builtin.apt:
