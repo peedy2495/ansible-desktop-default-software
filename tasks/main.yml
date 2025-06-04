@@ -78,7 +78,6 @@
     - xfsprogs
   tags:
     - misc-from-native
-deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
 
 - name: Upgrade system
   ansible.builtin.apt:
