@@ -2,6 +2,7 @@
   ansible.builtin.import_tasks: repo_xtradeb.yml
   tags:
     - ppa-xtradeb
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version >= '24.04'
 
 - name: Remove superfluous applications
   ansible.builtin.apt:
@@ -104,7 +105,7 @@
 
 - name: Install ungoogled-chromium browser
   ansible.builtin.import_tasks: appadd-ungoogled-chromium.yml
-  when: appadd_ungoogled_chromium
+  when: appadd_ungoogled_chromium and ansible_distribution == 'Ubuntu' and ansible_distribution_version >= '24.04'
   tags:
     - ungoogled-chromium
 
