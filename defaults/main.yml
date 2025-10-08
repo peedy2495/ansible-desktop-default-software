@@ -5,3 +5,5 @@ nexus_port: 8081
 nexus_proto: http
 appadd_ungoogled_chromium: true
 appadd_google-chrome: false
+appadd_ppa_qgis: true
+appadd_qgis: true
