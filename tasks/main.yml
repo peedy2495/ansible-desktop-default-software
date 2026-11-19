@@ -4,6 +4,10 @@
     - ppa-xtradeb
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version >= '24.04'
 
+- name: APT-Cache cleanup
+  ansible.builtin.apt:
+    clean: true
+
 - name: Remove superfluous applications
   ansible.builtin.apt:
     pkg:
