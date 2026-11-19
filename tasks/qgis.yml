@@ -48,7 +48,7 @@
         state: latest
         pkg:
           - qgis
-          - qgis-plugin-grass
+          - qgis-provider-grass
 
     - name: ppa qgis - cleanup
       ansible.builtin.apt:
