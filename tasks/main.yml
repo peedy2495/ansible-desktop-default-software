@@ -31,7 +31,6 @@
     update_cache: true
     install_recommends: true
     pkg:
-    - playonlinux
     - bing
     - ceph-common
     - ceph-fuse
