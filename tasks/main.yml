@@ -84,6 +84,33 @@
   tags:
     - misc-from-native
 
+- name: additional packages from native sources for ag systems
+  become: true
+  ansible.builtin.command:
+    argv:
+      - apt-get
+      - download
+      - "{{ item }}"
+    chdir: /var/tmp
+  loop:
+  - ldap-utils
+  - grass-doc
+  - grass-core
+  - nvidia-dkms-535
+  - nvidia-kernel-source-535
+  - nvidia-kernel-common-535
+  - libnvidia-extra-535
+  - libnvidia-common-535
+  - libnvidia-gl-535
+  - libnvidia-decode-535
+  - libnvidia-compute-535
+  - nvidia-compute-utils-535
+  - libnvidia-encode-535
+  - nvidia-utils-535
+  - xserver-xorg-video-nvidia-535
+  - libnvidia-cfg1-535
+  - libnvidia-fbc1-535
+
 - name: Upgrade system
   ansible.builtin.apt:
     update_cache: yes
